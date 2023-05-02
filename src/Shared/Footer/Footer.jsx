@@ -37,7 +37,7 @@ const Footer = () => {
                 </div>
             </footer>
             <hr></hr>
-            <p className='text-center bg-indigo-700 text-white'>Copyright © 2023 - All right reserved by SA Abdullah</p>
+            <p className='text-center bg-indigo-700 text-white py-1 mb-3'>Copyright © 2023 - All right reserved by <span className='text-md font-bold'>SA Abdullah</span></p>
         </div>
     )
 };
