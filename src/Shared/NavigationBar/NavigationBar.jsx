@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     return (
-            <div className="navbar bg-violet-300 mt-3 flex justify-between rounded-md">
+            <div className="navbar bg-violet-300 mt-3 flex justify-between rounded-md min-h-fit">
                 <div className='ml-3'>
                     <Link to='/'><span className='font-bold text-2xl text-green-100'>Palatable</span><span className='font-semibold text-2xl text-indigo-400'>Maker</span></Link>
                 </div>
@@ -30,7 +30,7 @@ const NavigationBar = () => {
                             <li><a>Logout</a></li>
                         </ul>
                     </div>
-                    <button className='font-bold bg-violet-600 text-white rounded-xl py-3 px-8'>Login</button>
+                    <Link to='/login'><button className='font-bold bg-violet-600 text-white rounded-xl py-3 px-8'>Login</button></Link>
                 </div>
             </div>
     
