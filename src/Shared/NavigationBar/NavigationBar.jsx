@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
     return (
-            <div className="navbar bg-violet-300 mt-3 flex justify-between rounded-md min-h-fit">
+            <div className="navbar bg-violet-50 mt-3 flex justify-between rounded-md min-h-fit">
                 <div className='ml-3'>
-                    <Link to='/'><span className='font-bold text-2xl text-green-100'>Palatable</span><span className='font-semibold text-2xl text-indigo-400'>Maker</span></Link>
+                    <Link to='/'><span className='font-bold text-2xl text-black'>Palatable</span><span className='font-bold text-2xl text-blue-700'>Maker</span></Link>
                 </div>
                 <div>
-                    <Link className='mr-5 text-blue font-bold' to='/'>Home</Link>
-                    <Link className='ml-5 text-blue font-bold' to='/blog'>Blog</Link>
+                    <Link className='mr-5 hover:text-blue-600 font-bold' to='/'>Home</Link>
+                    <Link className='ml-5 hover:text-blue-600 font-bold' to='/blogs'>Blog</Link>
                 </div>
                 
                 <div className="flex-none gap-2">

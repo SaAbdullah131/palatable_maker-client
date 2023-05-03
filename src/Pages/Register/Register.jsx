@@ -8,7 +8,7 @@ const Register = () => {
             <div className="hero min-h-screen bg-base-100 ">
                 <div className="hero-content flex">
                     <div className="card flex-shrink-0 w-[100%] h-full max-w-sm shadow-2xl bg-base-100 border border-indigo-400">
-                        <div className="card-body">
+                        <form className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -37,10 +37,8 @@ const Register = () => {
                                 <button className="btn btn-primary">Register</button>
                             </div>
                             <p className='font-semibold'>Already Have An Account ? <Link to='/login' className='text-blue-400 font-semibold'>Login</Link></p>
-                        
-                            <hr></hr>
+                        </form>
 
-                        </div>
                     </div>
                     <img className='w-50' src={signUpImage} alt="" />
                 </div>
