@@ -4,25 +4,32 @@ import { Link } from 'react-router-dom';
 import { FaGoogle,FaGithub} from 'react-icons/fa';
 const Login = () => {
 
-    
+    const handleLogInSubmit =(event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
+
+    }
     return (
         <div>
              <h4 className='text-center mt-10 p-2 text-3xl font-bold'>Please Login !!</h4>
             <div className="hero min-h-screen bg-base-100 ">
                 <div className="hero-content flex">
                     <div className="card flex-shrink-0 w-[600px] h-[550px] max-w-sm shadow-2xl bg-base-100 border border-indigo-400">
-                        <div className="card-body">
+                        <form onSubmit={handleLogInSubmit} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Enter Email" className="input input-bordered" />
+                                <input type="email" name='email' placeholder="Enter Email" className="input input-bordered"required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="Enter Your password" className="input input-bordered" />
+                                <input type="password" name='password' placeholder="Enter Your password" className="input input-bordered" required/>
                             </div>
                             <div className="form-control mt-4">
                                 <button className="btn btn-primary">Login</button>
@@ -40,7 +47,7 @@ const Login = () => {
                             </div>
                             <hr></hr>
                             
-                        </div>
+                        </form>
                     </div>
                     <img className='w-50' src={LoginImage} alt="" />
                 </div>
