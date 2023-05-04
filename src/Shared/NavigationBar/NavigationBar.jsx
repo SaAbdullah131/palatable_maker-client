@@ -1,8 +1,11 @@
 
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const NavigationBar = () => {
-    const  user = null;
+    const { user } = useContext(AuthContext);
+    console.log(user);
     return (
         <div className="navbar bg-violet-50 mt-3 mb-5 flex justify-between rounded-md min-h-fit">
             <div className='ml-3'>
@@ -18,7 +21,7 @@ const NavigationBar = () => {
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
                             {
-                                user ? 'hello' :
+                                user ? <img src={user.photoURL}/> :
                                     <img src="https://thumbs.dreamstime.com/b/flat-male-avatar-image-beard-hairstyle-businessman-profile-icon-vector-179285629.jpg" />
                             }
 
@@ -41,7 +44,22 @@ const NavigationBar = () => {
 
                     </ul>
                 </div>
-                <Link to='/login'><button className='font-bold bg-violet-600 text-white rounded-xl py-3 px-8'>Login</button></Link>
+                {
+                    user ?
+                        <div>
+                            <Link to='/login'>
+                                <button className='font-bold bg-violet-600 text-white rounded-xl py-3 px-8'>
+                                    LogOut
+                                </button>
+                            </Link>
+                        </div> :
+                        <div>
+                            <Link to='/'>
+                                <button className='font-bold bg-violet-600 text-white rounded-xl py-3 px-8'>
+                                    LogIn</button>
+                            </Link>
+                        </div> 
+                }
             </div>
         </div>
 

@@ -1,11 +1,15 @@
-import React,{useState} from 'react';
+import React,{useContext, useState} from 'react';
 import signUpImage from '../../assets/Register/Sign up.gif'
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../Providers/AuthProvider';
+
 const Register = () => {
     const [error,setError] = useState('');
-    const user = null;
-
+    const [success,setSuccess] = useState('');
+    const {user,createUser} = useContext(AuthContext);
+    // console.log(createUser);
+    
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -17,11 +21,25 @@ const Register = () => {
 
         setError('');
         // validation
-        if(password.length<6) {
+        // if(!/(?=.[A-Z])/.test(password)) {
+        //     setError('At least one Capital Letter Added');
+        //     return;
+        // }
+         if(password.length<6) {
             setError('Password at least 6 character');
+            form.reset();
             return;
         }
-       
+
+        createUser(email,password)
+        .then(result=> {
+            const newUser = result.user;
+            console.log(newUser);
+            form.reset();
+        })
+        .catch(error => {
+             console.log(error.code);
+        })
 
     }
     return (
@@ -56,10 +74,12 @@ const Register = () => {
                                 <input type="password" name='password' placeholder="Enter Your password" className="input input-bordered"required />
                             </div>
                             <div className="form-control mt-4">
-                                <button className="btn btn-primary">Register</button>
+                               <button className="btn btn-primary">Register</button> 
                             </div>
                             <p className='font-semibold'>Already Have An Account ? <Link to='/login' className='text-blue-400 font-semibold'>Login</Link></p>
-                            <p>{error}</p>
+                            <p className="text-red-500 text-md text-center">
+                                {error}
+                            </p>
                         </form>
 
                     </div>
