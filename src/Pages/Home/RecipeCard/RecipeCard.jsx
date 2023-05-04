@@ -1,9 +1,44 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 
-const RecipeCard = () => {
+import React, { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
+
+
+
+const RecipeCard = ({ recipe, notify }) => {
+    const { recipe_name, ingredients, cooking_method } = recipe;
+
+    const [isClicked, setIsClicked] = useState(false);
+
+
     return (
         <div>
-            
+            <div className="card w-full h-full bg-violet-50 shadow-xl border border-4 border-indigo-800">
+                <div className="card-body">
+                    <h2 className="card-title text-2xl text-cyan-900 font-bold">{recipe_name}</h2>
+                    <ul className="list-image-checkmark list-inside">
+                        {
+                            ingredients.map(ingredient => <li key={ingredient} >{ingredient}</li>)
+                        }
+                    </ul>
+                    <p><span className='font-bold'>Cooking Method:</span> {cooking_method}</p>
+                    <div>
+                        {/* <Rating
+                            style={{ maxWidth: 180 }}
+                            value={Math.round(rating)}
+                            readOnly
+                        ></Rating> */}
+                    </div>
+                    <div className="card-actions justify-end">
+                        <button onClick={() => {
+                            notify();
+                            setIsClicked(true);
+                        }} className='btn border-0 rounded-full bg-violet-600 text-white hover:bg-orange-500' disabled={isClicked}><FaHeart className='text-2xl '></FaHeart></button>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

@@ -1,26 +1,24 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-// import Pdf from "react-to-pdf";
+import Pdf from "react-to-pdf";
 
 const Blogs = () => {
     
-    // const ref = React.createRef();
-    // const options = {
-    //     orientation: 'l',
-    //     unit: 'in',
-    //     format: 'a4'
-    // }
+    const ref = React.createRef();
+    const options = {
+        orientation: 'l',
+        unit: 'in',
+        format: 'a4'
+    }
     return (
         <div> 
             <h2 className='text-center font-bold text-2xl text-blue-400 underline'>Some Articles of Palatable Maker</h2>
-            {/* <div className='flex flex-col justify-center items-center gap-7'>
-                <h1 className='mt-8 text-4xl font-extrabold text-cyan-900'>Blog</h1>
-                <Pdf targetRef={ref} filename="blog.pdf" options={options} x={.5} y={.5} scale={0.7}>
+            <div className='flex flex-col justify-center items-center gap-7'>
+                <Pdf targetRef={ref} filename="blog.pdf" options={options} x={.5} y={.5} scale={0.8}>
                     {({ toPdf }) => <button className='btn' onClick={toPdf}>Download PDF</button>}
                 </Pdf>
-            </div> */}
-            {/* ref={ref} */}
-            <div className='my-8' >
+            </div>
+            <div className='my-8' ref={ref} >
                 <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-cyan-900 bg-orange-50 rounded-box">
                     <input type="checkbox" />
                     <div className="collapse-title text-xl font-bold text-indigo-900">
@@ -58,7 +56,7 @@ const Blogs = () => {
                     </div>
                 </div>
             </div>
-        </div>
+         </div>
     );
 };
 

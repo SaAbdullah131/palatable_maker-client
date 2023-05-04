@@ -37,8 +37,9 @@ const ChefsDetails = () => {
                     <div className="max-w-md">
                         <div className="avatar ">
                             <div className="w-72 rounded-full">
-                                {/* <LazyLoad height={300} width={200}> */}
-                                    <img src={chef_picture} />
+                                {/* <LazyLoad height={300} width={200}> 
+                                    <img src={chef_picture} /> */}
+
                                 {/* </LazyLoad> */}
                             </div>
                         </div>
