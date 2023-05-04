@@ -14,7 +14,10 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Home></Home>
+                element:<Home></Home>,
+                loader: () => {
+                    return fetch('https://chef-recipe-server-ochre.vercel.app/chefs');
+                  }
             },
             {
                 
