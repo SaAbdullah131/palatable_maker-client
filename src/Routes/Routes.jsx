@@ -5,6 +5,8 @@ import Register from "../Pages/Register/Register";
 import Blogs from "../Pages/Blogs/Blogs";
 import Error from "../Layout/Error/Error";
 import Home from "../Pages/Home/Home";
+import PrivateRoute from "./PrivateRoute";
+import ChefsDetails from "../Pages/Home/ChefsAll/ChefsDetails";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +20,11 @@ const router = createBrowserRouter([
                 loader: () => {
                     return fetch('https://chef-recipe-server-ochre.vercel.app/chefs');
                   }
+            },
+            {
+                path:'/chefs/:id',
+                element:<PrivateRoute><ChefsDetails></ChefsDetails></PrivateRoute>,
+                loader:({params})=>fetch(`https://chef-recipe-server-ochre.vercel.app/chefs/${params.id}`)
             },
             {
                 

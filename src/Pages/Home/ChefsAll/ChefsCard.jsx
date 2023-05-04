@@ -10,7 +10,7 @@ const ChefsCard = ({ chef }) => {
         <div>
             <div className="card card-side bg-base-100 shadow-xl border-s-4 border-b-4 border-violet-400">
                 <figure>
-                    <img src={chef_picture} alt="Movie" />
+                    <img className='h-full w-80' src={chef_picture} alt="Movie" />
                 </figure>
                 <div className="card-body justify-around">
                     <div>
@@ -20,7 +20,7 @@ const ChefsCard = ({ chef }) => {
                         </h2>
                         <div className='mt-4'>
                             <p><span className='font-bold text-blue-600 text-lg'>{years_of_experience}</span> years of experience.</p>
-                            <p>Numbers of recipes  <span className='font-bold text-orange-600 text-lg'>{num_recipes}</span>.</p>
+                            <p>Numbers of recipes  <span className='font-bold text-violet-600 text-lg'>{num_recipes}</span>.</p>
                         </div>
                     </div>
                     <div className="card-actions justify-end">

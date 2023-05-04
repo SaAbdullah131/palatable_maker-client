@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import LoginImage from '../../assets/Login/login.gif'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
@@ -15,6 +15,9 @@ const Login = () => {
     const [success, setSuccess] = useState('');
 
     const { logIn, googleLogin, githubLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogInSubmit = (event) => {
         event.preventDefault();
@@ -31,6 +34,7 @@ const Login = () => {
                 setError('');
                 setSuccess('Login Successful');
                 form.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 const errorMessage = error.code;
@@ -50,7 +54,8 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.code);
@@ -62,7 +67,8 @@ const Login = () => {
         githubLogin()
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.code);
