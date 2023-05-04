@@ -1,14 +1,17 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect } from 'react';
+import React, {  } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import LazyLoad from 'react-lazy-load';
+ import {RealLazyLoad} from 'real-react-lazyload';
 import RecipeCard from '../RecipeCard/RecipeCard';
+
 
 
 const ChefsDetails = () => {
     const chef = useLoaderData();
+
+
     const { _id, chef_picture, chef_name, bio, years_of_experience, num_recipes, likes, recipes, banner_img } = chef;
 
     // toast notification
@@ -23,6 +26,7 @@ const ChefsDetails = () => {
         theme: "light",
     });
 
+    // scroll the horizontal 0 and vertical 0.
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -36,11 +40,11 @@ const ChefsDetails = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <div className="avatar ">
-                            <div className="w-72 rounded-full">
-                                {/* <LazyLoad height={300} width={200}> 
-                                    <img src={chef_picture} /> */}
-
-                                {/* </LazyLoad> */}
+                            <div className="w-80 rounded-full">
+                                <RealLazyLoad height={300} width={200}> 
+                                    <img src={chef_picture} /> 
+                                </RealLazyLoad>
+                                {/* <img src={chef_picture} /> */}
                             </div>
                         </div>
                         <div>

@@ -5,6 +5,7 @@ import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../Authentication/firebase.config';
+import { toast } from 'react-toastify';
 
 const auth = getAuth(app);
 // const googleProvider = new GoogleAuthProvider();
@@ -17,6 +18,18 @@ const Login = () => {
     const { logIn, googleLogin, githubLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+
+    const notify = () => toast.success('Login Successful', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+
+    })
+    // previous form location
     const from = location.state?.from?.pathname || '/';
 
     const handleLogInSubmit = (event) => {
@@ -24,7 +37,7 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
         setError('');
         setSuccess('');
         logIn(email, password)
@@ -32,7 +45,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setError('');
-                setSuccess('Login Successful');
+                setSuccess(notify);
                 form.reset();
                 navigate(from, { replace: true });
             })

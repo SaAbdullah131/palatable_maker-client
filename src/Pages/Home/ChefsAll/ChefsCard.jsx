@@ -8,7 +8,7 @@ const ChefsCard = ({ chef }) => {
     const { _id, chef_picture, chef_name, years_of_experience, num_recipes, likes } = chef;
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-xl border-s-4 border-b-4 border-violet-400">
+            <div className="card card-side bg-base-100 shadow-xl border-s-4 border-b-4 border-violet-400 border-e-green-400 border-e-4">
                 <figure>
                     <img className='h-full w-80' src={chef_picture} alt="Movie" />
                 </figure>

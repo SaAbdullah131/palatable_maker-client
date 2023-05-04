@@ -12,14 +12,14 @@ const Blogs = () => {
     }
     return (
         <div> 
-            <h2 className='text-center font-bold text-2xl text-blue-400 underline'>Some Articles of Palatable Maker</h2>
+            <h2 className='text-center font-bold text-2xl text-blue-400 underline py-2'>Some Articles of Palatable Maker</h2>
             <div className='flex flex-col justify-center items-center gap-7'>
                 <Pdf targetRef={ref} filename="blog.pdf" options={options} x={.5} y={.5} scale={0.8}>
-                    {({ toPdf }) => <button className='btn' onClick={toPdf}>Download PDF</button>}
+                    {({ toPdf }) => <button className='btn bg-violet-600' onClick={toPdf}>Download PDF</button>}
                 </Pdf>
             </div>
             <div className='my-8' ref={ref} >
-                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-cyan-900 bg-orange-50 rounded-box">
+                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-indigo-900 bg-orange-50 rounded-box">
                     <input type="checkbox" />
                     <div className="collapse-title text-xl font-bold text-indigo-900">
                         What is the differences between uncontrolled and controlled components?
@@ -28,7 +28,7 @@ const Blogs = () => {
                         <p>In React, controlled components refer to components that have their state and behavior controlled by the parent component. These components rely on props passed down from the parent component to update their state and behavior. Uncontrolled components refer to components that manage their own state internally.</p>
                     </div>
                 </div>
-                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-cyan-900 bg-orange-50 rounded-box">
+                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-indigo-900 bg-orange-50 rounded-box">
                     <input type="checkbox" />
                     <div className="collapse-title text-xl font-bold text-indigo-900">
                         How to validate React props using PropTypes?
@@ -43,12 +43,12 @@ const Blogs = () => {
                         What is the difference between nodejs and express js?
                     </div>
                     <div className="collapse-content">
-                        <p>js web application framework that provides a robust set of features for web and mobile applications. In other words, NodeJS is the package, which provides the JavaScript run-time environment, whereas Express is a framework that sits on top of NodeJS and helps us to handle requests and responses.</p>
+                        <p>Express js web application framework that provides a robust set of features for web and mobile applications. On the other hands, NodeJS is the package, which provides the JavaScript run-time environment, whereas Express is a framework that sits on top of NodeJS and helps us to handle requests and responses.</p>
                     </div>
                 </div>
-                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-cyan-900 bg-orange-50 rounded-box">
+                <div tabIndex={0} className="collapse collapse-arrow border border-2 mb-2 text-center border-indigo-900 bg-orange-50 rounded-box">
                     <input type="checkbox" />
-                    <div className="collapse-title text-xl font-bold text-cyan-900">
+                    <div className="collapse-title text-xl font-bold text-indigo-900">
                         What is a custom hook, and why will you create a custom hook?
                     </div>
                     <div className="collapse-content">

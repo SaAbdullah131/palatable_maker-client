@@ -7,7 +7,7 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const Register = () => {
     const [error,setError] = useState('');
     const [success,setSuccess] = useState('');
-    const {user,createUser} = useContext(AuthContext);
+    const {user,createUser,updateUser} = useContext(AuthContext);
     // console.log(createUser);
     
     const handleRegister = (event) => {
@@ -35,12 +35,14 @@ const Register = () => {
         .then(result=> {
             const newUser = result.user;
             console.log(newUser);
+            updateUser(name,photo);
+            setSuccess('Register Completed !!');
             form.reset();
         })
         .catch(error => {
-             console.log(error.code);
+             setError(error.message);
         })
-
+        
     }
     return (
         <div>
@@ -76,6 +78,7 @@ const Register = () => {
                             <div className="form-control mt-4">
                                <button className="btn btn-primary">Register</button> 
                             </div>
+                            <p className='text-success font-bold text-2xl text-center'>{success}</p>
                             <p className='font-semibold'>Already Have An Account ? <Link to='/login' className='text-blue-400 font-semibold'>Login</Link></p>
                             <p className="text-red-500 text-md text-center">
                                 {error}

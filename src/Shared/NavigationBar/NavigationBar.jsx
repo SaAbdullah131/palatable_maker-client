@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -31,9 +32,8 @@ const NavigationBar = () => {
                         <div className="w-10 rounded-full">
                             {
                                 user ? <>
-                                    <img className='my-element' src={user.photoURL} />
-                                    <Tooltip anchorSelect='.my-element' place='right'>
-                                        {user.displayName}
+                                    <img data-tooltip-id='my-tooltip' data-tooltip-content={user.displayName} src={user.photoURL} />
+                                    <Tooltip id='my-tooltip'>
                                     </Tooltip>
                                 </> :
                                     <img src="https://thumbs.dreamstime.com/b/flat-male-avatar-image-beard-hairstyle-businessman-profile-icon-vector-179285629.jpg" />
