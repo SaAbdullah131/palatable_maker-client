@@ -16,7 +16,7 @@ const ChefsCard = ({ chef }) => {
                     <div>
                         <h2 className="card-title flex flex-col  items-start">
                             <p className='grow-0 text-1xl md:text-3xl font-bold'>{chef_name}</p>
-                            <div className="badge badge-md md:badge-lg badge-accent"><FaHeart className='me-1'></FaHeart> {likes}</div>
+                            <div className="badge badge-md md:badge-lg badge-primary py-2"><FaHeart className='me-1'></FaHeart> {likes}</div>
                         </h2>
                         <div className='mt-4'>
                             <p><span className='font-bold text-blue-600 text-lg'>{years_of_experience}</span> years of experience.</p>
