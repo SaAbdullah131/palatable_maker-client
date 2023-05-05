@@ -3,19 +3,20 @@
 
 import React, { useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
-
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 const RecipeCard = ({ recipe, notify }) => {
-    const { recipe_name, ingredients, cooking_method } = recipe;
+    const { recipe_name, ingredients, cooking_method ,rating } = recipe;
 
     const [isClicked, setIsClicked] = useState(false);
 
 
     return (
         <div>
-            <div className="card w-full h-full bg-violet-50 shadow-xl border border-4 border-indigo-800">
-                <div className="card-body">
+            <div className="card w-full h-full bg-violet-50 shadow-xl border-s border-e border-4 border-indigo-700">
+                <div className="card-body flex-grow-0">
                     <h2 className="card-title text-2xl text-cyan-900 font-bold">{recipe_name}</h2>
                     <ul className="list-image-checkmark list-inside">
                         {
@@ -24,11 +25,11 @@ const RecipeCard = ({ recipe, notify }) => {
                     </ul>
                     <p><span className='font-bold'>Cooking Method:</span> {cooking_method}</p>
                     <div>
-                        {/* <Rating
-                            style={{ maxWidth: 180 }}
+                        <Rating
+                            style={{ maxWidth: 150 }}
                             value={Math.round(rating)}
                             readOnly
-                        ></Rating> */}
+                        ></Rating>
                     </div>
                     <div className="card-actions justify-end">
                         <button onClick={() => {

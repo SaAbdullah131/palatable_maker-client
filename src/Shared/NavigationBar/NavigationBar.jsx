@@ -1,9 +1,10 @@
 
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink,Link} from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
+import './NavigationBar.css';
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -19,11 +20,18 @@ const NavigationBar = () => {
     return (
         <div className="navbar bg-violet-50 mt-3 mb-5 flex justify-between rounded-md min-h-fit">
             <div className='ml-3'>
-                <Link to='/'><span className='font-bold text-2xl text-black'>Palatable</span><span className='font-bold text-2xl text-blue-700'>Maker</span></Link>
+                <NavLink to='/'
+                className={({isActive,isPending})=>{
+                isPending?'pending': isActive ?'active':''
+                }}
+
+                >
+                    <span className='font-bold text-2xl text-black'>Palatable</span><span className='font-bold text-2xl text-blue-700'>Maker</span>
+                </NavLink>
             </div>
             <div>
-                <Link className='mr-5 hover:text-blue-600 font-bold' to='/'>Home</Link>
-                <Link className='ml-5 hover:text-blue-600 font-bold' to='/blogs'>Blog</Link>
+                <NavLink className='mr-5 hover:text-blue-600 font-bold' to='/'>Home</NavLink>
+                <NavLink className='ml-5 hover:text-blue-600 font-bold' to='/blogs'>Blog</NavLink>
             </div>
 
             <div className="flex-none gap-2">
